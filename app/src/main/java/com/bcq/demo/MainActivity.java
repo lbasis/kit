@@ -5,6 +5,7 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.kit.utils.KToast;
 import com.kit.utils.Logger;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +24,12 @@ public class MainActivity extends AppCompatActivity {
 
     public void testKit() {
         Logger.e("MainActivity");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                KToast.show("测试子线程弹toast");
+            }
+        }).start();
     }
 
 }
